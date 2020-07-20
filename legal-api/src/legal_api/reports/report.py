@@ -104,28 +104,31 @@ class Report:  # pylint: disable=too-few-public-methods
         """
         template_path = current_app.config.get('REPORT_TEMPLATE_PATH')
         template_parts = [
-            'directors',
+            'bc-address-change/addressChangeDetails',
+            'bc-address-change/addresses',
+            'bc-address-change/style',
+            'certificate-of-incorporation/logo',
+            'certificate-of-incorporation/registrarSignature',
+            'certificate-of-incorporation/seal',
+            'certificate-of-incorporation/style',
+            'incorporation-application/addresses',
+            'incorporation-application/completingParty',
+            'incorporation-application/directors',
+            'incorporation-application/incorporationDetails',
+            'incorporation-application/incorporator',
+            'incorporation-application/nameRequest',
+            'incorporation-application/shareStructure',
+            'incorporation-application/style',
             'addresses',
             'certification',
+            'directors',
+            'dissolution',
             'footer',
+            'legalNameChange',
             'logo',
             'macros',
-            'style',
-            'dissolution',
-            'legalNameChange',
             'resolution',
-            'certificate-of-incorporation/style',
-            'certificate-of-incorporation/seal',
-            'certificate-of-incorporation/registrarSignature',
-            'certificate-of-incorporation/logo',
-            'incorporation-application/addresses',
-            'incorporation-application/directors',
-            'incorporation-application/style',
-            'incorporation-application/incorporator',
-            'incorporation-application/completingParty',
-            'incorporation-application/incorporationDetails',
-            'incorporation-application/shareStructure',
-            'incorporation-application/nameRequest'
+            'style'
         ]
 
         # substitute template parts - marked up by [[filename]]
