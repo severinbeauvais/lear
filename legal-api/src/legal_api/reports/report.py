@@ -154,7 +154,8 @@ class Report:  # pylint: disable=too-few-public-methods
         if self._filing.filing_type == 'incorporationApplication' and report_type:
             file_name = Report.incorporation_filing_reports[report_type]['fileName']
             return '{}.html'.format(file_name)
-        return '{}.html'.format(self._filing.filing_type)
+        # return '{}.html'.format(self._filing.filing_type)
+        return 'bcAddressChange.html'
 
     def _get_template_data(self, report_type=None):  # pylint: disable=too-many-branches
         filing = copy.deepcopy(self._filing.filing_json['filing'])
@@ -198,6 +199,7 @@ class Report:  # pylint: disable=too-few-public-methods
         elif self._filing.filing_type in ('changeOfAddress', 'changeOfDirectors'):
             # for standalone filings, the effective date comes from the filing data
             filing['effective_date'] = effective_date.strftime('%B %d, %Y')
+            filing['effective_date_time'] = effective_date.strftime(f'%B %d, %Y {hour}:%M %p Pacific Time')
 
     def _set_directors(self, filing):
         if filing.get('changeOfDirectors'):
